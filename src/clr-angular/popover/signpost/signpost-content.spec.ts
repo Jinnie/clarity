@@ -13,8 +13,7 @@ import { IfOpenService } from '../../utils/conditional/if-open.service';
 import { POPOVER_HOST_ANCHOR } from '../common/popover-host-anchor.token';
 
 import { ClrSignpostContent } from './signpost-content';
-import { SIGNPOST_POSITIONS } from './signpost-positions';
-import { SignpostIdService } from './providers/signpost-id.service';
+import { SIGNPOST_OFFSETS } from './signpost-offsets';
 import { SignpostFocusManager } from './providers/signpost-focus-manager.service';
 
 export default function(): void {
@@ -25,7 +24,7 @@ export default function(): void {
       context = this.createOnly(
         ClrSignpostContent,
         SimpleTest,
-        [SignpostIdService, IfOpenService, SignpostFocusManager],
+        [IfOpenService, SignpostFocusManager],
         [ClrIconCustomTag]
       );
     });
@@ -68,37 +67,33 @@ export default function(): void {
     });
 
     // Not iterating here on purpose, we want to keep these hard-coded in the tests.
-    testPosition('top-left');
-    testPosition('top-middle');
-    testPosition('top-right');
-    testPosition('right-top');
-    testPosition('right-middle');
-    testPosition('right-bottom');
-    testPosition('bottom-right');
-    testPosition('bottom-middle');
-    testPosition('bottom-left');
-    testPosition('left-bottom');
-    testPosition('left-middle');
-    testPosition('left-top');
+    testOffset('top-left');
+    testOffset('top-middle');
+    testOffset('top-right');
+    testOffset('right-top');
+    testOffset('right-middle');
+    testOffset('right-bottom');
+    testOffset('bottom-right');
+    testOffset('bottom-middle');
+    testOffset('bottom-left');
+    testOffset('left-bottom');
+    testOffset('left-middle');
+    testOffset('left-top');
 
-    function testPosition(name: string): void {
+    function testOffset(name: string): void {
       it('has a ' + name + ' signpost content position', function() {
         context.clarityDirective.position = name;
         context.detectChanges();
-        const position = SIGNPOST_POSITIONS[name];
+        const position = SIGNPOST_OFFSETS[name];
         /*********
          *
-         * There are 5 things to test here
+         * There are 3 things to test here
          * 0. correct class on the host
-         * 1. correct anchor point
-         * 2. correct popover point
-         * 3. Correct Y offset
-         * 4. Correct X offset
+         * 1. Correct Y offset
+         * 2. Correct X offset
          *
          */
         expect(context.clarityElement.classList).toContain(name);
-        expect((<any>context.clarityDirective).anchorPoint).toBe(position.anchorPoint);
-        expect((<any>context.clarityDirective).popoverPoint).toBe(position.popoverPoint);
         expect((<any>context.clarityDirective).popoverOptions.offsetY).toBe(position.offsetY);
         expect((<any>context.clarityDirective).popoverOptions.offsetX).toBe(position.offsetX);
       });

@@ -43,7 +43,7 @@ export class ClrPopoverAdapter implements OnInit, OnDestroy {
 
   constructor(
     @Inject(UNIQUE_ID) id: string,
-    private toggleService: ClrPopoverToggleService,
+    public /*private*/ toggleService: ClrPopoverToggleService,
     @Optional() private ifOpen: IfOpenService,
     public positionService: ClrPopoverPositionService
   ) {

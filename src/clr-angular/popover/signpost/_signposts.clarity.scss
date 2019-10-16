@@ -4,12 +4,6 @@
 
 @include exports('signpost.clarity') {
   .signpost {
-    display: inline-block;
-
-    &:hover {
-      cursor: pointer;
-    }
-
     .signpost-action {
       min-width: $clr_baselineRem_1;
       margin: 0;
@@ -25,6 +19,10 @@
       &.active {
         color: $clr-signpost-action-hover-color;
       }
+    }
+
+    .clr-open .signpost-action {
+      color: $clr-signpost-action-hover-color;
     }
 
     .signpost-content-header button clr-icon {
@@ -45,13 +43,9 @@
     max-width: $clr_baselineRem_15;
     min-height: $clr_baselineRem_2;
     max-height: $clr_baselineRem_21;
-    display: inline-block;
-    position: relative;
-    z-index: map-get($clr-layers, tooltips);
 
-    &:hover {
-      cursor: default;
-    }
+    // override signpost content outline, introduced by clrFocusTrap
+    outline: none;
 
     .popover-pointer {
       width: 0;

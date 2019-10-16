@@ -1,11 +1,19 @@
 <!--
-  ~ Copyright (c) 2016-2018 VMware, Inc. All Rights Reserved.
+  ~ Copyright (c) 2016-2019 VMware, Inc. All Rights Reserved.
   ~ This software is released under MIT license.
   ~ The full license information can be found in LICENSE in the root directory of this project.
   -->
 
 <h4>Positions</h4>
-
+<clr-signpost>
+    <clr-signpost-content *clrIfOpen="openState">
+        <button class="dummy-button" type="button">
+          dummy button
+        </button>
+        Signpost content
+    </clr-signpost-content>
+</clr-signpost>
+<input type="text">
 <div class="content-container">
     <div class="content-area">
         <div class="signpost-demo">
@@ -16,9 +24,9 @@
                     </div>
                     <div class="position">
                         <clr-signpost>
-                            <button id="{{ position.id }}" type="button" class="signpost-action btn btn-small btn-link" clrSignpostTrigger>
+                            <!-- <button id="{{ position.id }}" type="button" class="signpost-action btn btn-small btn-link" clrSignpostTrigger>
                                 <clr-icon shape="help-info"></clr-icon>
-                            </button>
+                            </button> -->
                             <clr-signpost-content *clrIfOpen [clrPosition]="position.position">
                                 <p>{{ position.position }}</p>
                                 <p>

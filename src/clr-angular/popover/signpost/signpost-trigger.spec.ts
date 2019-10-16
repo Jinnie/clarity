@@ -10,7 +10,6 @@ import { ClrIconModule } from '../../icon/icon.module';
 import { IfOpenService } from '../../utils/conditional/if-open.service';
 
 import { ClrSignpostModule } from './signpost.module';
-import { SignpostIdService } from './providers/signpost-id.service';
 import { SignpostFocusManager } from './providers/signpost-focus-manager.service';
 
 export default function(): void {
@@ -24,7 +23,7 @@ export default function(): void {
       TestBed.configureTestingModule({
         imports: [ClrSignpostModule, ClrIconModule],
         declarations: [TestTrigger],
-        providers: [IfOpenService, SignpostIdService, SignpostFocusManager],
+        providers: [IfOpenService, SignpostFocusManager],
       });
 
       fixture = TestBed.createComponent(TestTrigger);

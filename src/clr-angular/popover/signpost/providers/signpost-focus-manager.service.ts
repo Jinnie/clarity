@@ -15,6 +15,7 @@ export class SignpostFocusManager {
   }
 
   focusTrigger() {
+    console.log('Маашаа', document.activeElement.tagName);
     if (this._triggerEl) {
       this._triggerEl.focus();
     }

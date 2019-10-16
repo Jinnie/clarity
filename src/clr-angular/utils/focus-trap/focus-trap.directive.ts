@@ -100,6 +100,7 @@ export class FocusTrapDirective implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    console.log('фокус мокус');
     if (isPlatformBrowser(this.platformId)) {
       this.previousActiveElement = <HTMLElement>this.document.activeElement;
     }
@@ -108,6 +109,8 @@ export class FocusTrapDirective implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    console.log('фокус чау');
+
     this.removeReboundEls();
     this.setPreviousFocus();
     this.focusTrapsTracker.activatePreviousTrapper();

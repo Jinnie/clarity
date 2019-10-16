@@ -38,10 +38,10 @@ let clrDgActionId = 0;
       </button>
 
       <div class="datagrid-action-overflow"
-           role="menu" 
+           role="menu"
            [id]="popoverId"
            [attr.aria-hidden]="!open"
-           [attr.id]="popoverId" 
+           [attr.id]="popoverId"
            clrFocusTrap
            *clrPopoverContent="open at smartPosition; outsideClickToClose: true; scrollToClose: true">
           <ng-content></ng-content>
