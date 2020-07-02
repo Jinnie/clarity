@@ -312,6 +312,14 @@ export class ComboboxDemo {
     five: [this.states[5], this.states[8], this.states[10], this.states[15]],
   };
 
+  empty = {
+    one: null,
+    two: null,
+    three: null,
+    four: null,
+    five: null,
+  };
+
   validateOnBlur: string;
 
   asyncStates$: Observable<any>;
